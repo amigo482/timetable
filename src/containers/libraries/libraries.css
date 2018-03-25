@@ -1,0 +1,87 @@
+.title {
+  margin: 0;
+  font-family: sans-serif;
+}
+
+.collection {
+  overflow: auto;
+  background-color: rgb(245, 245, 245);
+  border: 1px solid rgb(211, 211, 211);
+}
+
+.collapsible {
+  border: none;
+  border-top: 1px solid rgb(221, 221, 221);
+  margin: 0;
+}
+
+.collapsible li > div:nth-child(2) {
+  padding: 5px;
+  position: relative;
+}
+
+.item {
+  display: inline-block;
+  padding: 0.5rem;
+  width: 98%;
+  padding-left: 23px;
+  pointer-events: none;
+  position: relative;
+  line-height: 1.5;
+}
+
+.item:before {
+  content: '\270E';
+  pointer-events: all;
+  position: absolute;
+  left: 4px;
+  cursor: pointer;
+}
+
+.category {
+  position: relative;
+}
+
+.hide {
+  display: none;
+}
+
+.item:hover {
+  color: rgb(0, 221, 0);
+}
+
+.add {
+  width: 20px;
+  height: 20px;
+  margin: 0.85rem;
+  position: absolute;
+  right: 0;
+  top: 0;
+}
+
+.add:hover {
+  -webkit-transform: scale(1.3);
+  -moz-transform: scale(1.3);
+  -o-transform: scale(1.3);
+}
+
+.add i {
+  margin-left: -0.33rem;
+  margin-top: -0.8rem;
+  font-size: 15px;
+}
+
+.delete {
+  display: inline-block;
+}
+
+.delete:hover {
+  color: red;
+}
+
+.delete:after {
+  content: '\2716';
+  pointer-events: all;
+  top: 0;
+  cursor: pointer;
+}

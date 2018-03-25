@@ -1,0 +1,22 @@
+.main {
+
+}
+
+.left-block {
+  position: fixed;
+  height: 100%;
+  overflow: auto;
+}
+
+.right-block {
+  float: right !important;
+}
+
+@media only screen and (max-width: 601px) {
+  .left-block {
+    position: relative;
+  }
+  .right-block {
+    float: none;
+  }
+}

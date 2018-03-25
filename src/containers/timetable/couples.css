@@ -1,0 +1,34 @@
+.collection {
+  margin-top: 1rem;
+}
+
+.collection ul {
+  width: 99%;
+  margin: auto;
+  border: none;
+  -webkit-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  -moz-box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+  box-shadow: 0 2px 2px 0 rgba(0,0,0,0.14), 0 1px 5px 0 rgba(0,0,0,0.12), 0 3px 1px -2px rgba(0,0,0,0.2);
+}
+
+.enter {
+  opacity: 0.01;
+  transition: opacity 1.5s ease-in;
+}
+.enter.enter-active {
+  opacity: 1;
+}
+.leave {
+  opacity: 1;
+  transition: opacity 1.5s ease-in;
+}
+.leave.leave-active {
+  opacity: 0.01;
+}
+.appear {
+  opacity: 0.01;
+}
+.appear.appear-active {
+  opacity: 1;
+  transition: opacity 1.5s ease-in;
+}

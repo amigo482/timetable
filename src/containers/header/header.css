@@ -1,0 +1,41 @@
+
+.logo {
+  background-image: url(../../files/logo.gif);
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: unset;
+  display: inline-block;
+  left: 0;
+  cursor: pointer;
+}
+
+.logo span {
+  font-family: roboto;
+  font-size: 3rem;
+  margin-left: 5rem;
+}
+
+.button {
+  vertical-align: top;
+  margin: 1rem;
+}
+
+.dropdown {
+  margin: 1rem;
+}
+
+.dropdown li a {
+  color: black;
+}
+
+.course {
+  vertical-align: top;
+  margin: 1.2rem;
+  display: inline-block;
+}
+
+.type {
+  padding: 1rem;
+}

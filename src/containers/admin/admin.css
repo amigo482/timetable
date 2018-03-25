@@ -1,0 +1,49 @@
+.logo {
+  background-image: url(../../files/logo.gif);
+  width: 4rem;
+  height: 4rem;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: unset;
+  display: inline-block;
+  left: 0;
+}
+
+.logo span {
+  font-family: roboto;
+  font-size: 3rem;
+  margin-left: 5rem;
+}
+
+.caption {
+  display: inline-block;
+  vertical-align: top;
+}
+
+.header {
+  display: inline;
+  padding: 0 1rem;
+  line-height: 37px;
+  font-size: 1.3rem;
+}
+
+.row {
+  margin: 0;
+}
+
+.select {
+  height: 46px;
+}
+
+.faculty {
+  display: block;
+  padding: 0 1rem;
+}
+
+.select ul li span {
+  color: black;
+}
+
+.select input {
+  width: 93% !important;
+}

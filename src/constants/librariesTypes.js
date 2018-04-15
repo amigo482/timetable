@@ -14,6 +14,7 @@ const libraries = [
     schema: {
       name: 'text',
       abbr: 'text',
+      favouriteHousing: 'text',
     }
   },
   {

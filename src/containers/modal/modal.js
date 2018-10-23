@@ -13,10 +13,10 @@ import EditTimetableModal from './modals/editTimetable';
 
 class Modal extends Component {
   componentDidMount() {
-    document.onkeydown=( event ) => {
-      event=event||window.event;
-      if ( event.keyCode==27 ) {
-        this.props.setCurrentModal( '' );
+    document.onkeydown = (event) => {
+      event = event || window.event;
+      if (event.keyCode === 27) {
+        this.props.setCurrentModal('');
       };
     };
   }
@@ -35,8 +35,8 @@ class Modal extends Component {
       updateTimetable,
       getTimes,
       times,
-    }=this.props;
-    switch ( modal ) {
+    } = this.props;
+    switch (modal) {
       case 'edit':
         return <EditModal setCurrentModal={setCurrentModal} current={current} updateLibrary={updateLibraryRequest} libraries={libraries} />
       case 'add':
@@ -51,26 +51,26 @@ class Modal extends Component {
   }
 }
 
-const mapStateToProps=state => ( {
+const mapStateToProps = state => ({
   modal: state.modal.currentModal,
   current: state.libraries.current,
   libraries: state.libraries.list,
   faculty: state.login.user.faculty,
   currentTimetable: state.tables.currentTimetable,
   times: state.timetable.times,
-} );
+});
 
-const mapDispatchToProps=dispatch => {
-  return bindActionCreators( {
+const mapDispatchToProps = dispatch => {
+  return bindActionCreators({
     setCurrentModal,
     updateLibraryRequest,
     addLibraryRequest,
     addTimetable,
     updateTimetable,
     getTimes,
-  }, dispatch );
+  }, dispatch);
 };
 
 
-const ModalWithStyle=CSSModules( Modal, styles );
-export default connect( mapStateToProps, mapDispatchToProps )( ModalWithStyle );
+const ModalWithStyle = CSSModules(Modal, styles);
+export default connect(mapStateToProps, mapDispatchToProps)(ModalWithStyle);

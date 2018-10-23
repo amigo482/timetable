@@ -25,7 +25,6 @@ class AddModal extends React.Component {
     Object.keys(values).forEach(el => {
       lib[el] = values[el] !== 'on' ? values[el] : false;
     })
-    console.log(lib);
 
     if (faculty) {
       lib.faculty = faculty._id;

@@ -6,27 +6,6 @@ body {
   font-family: roboto;
 }
 
-:global .over {
-  background-color: rgb(76, 175, 79);
-  border-left: 1px solid rgb(169, 168, 168);
-}
-
-:global .over * {
-  opacity: 0;
-}
-
-:global .over:before {
-  content: '+';
-  color: white;
-  position: absolute;
-  font-size: 50px;
-  left: 50%;
-  margin-left: -15px;
-  top: 50%;
-  bottom: 0;
-  margin-top: -33px;
-}
-
 div ul li img {
   display: none;
 }

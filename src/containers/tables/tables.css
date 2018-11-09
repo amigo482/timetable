@@ -17,24 +17,24 @@
 }
 
 .collapsible li > div:nth-child(2) {
-  padding: 5px;
   position: relative;
+  padding: 5px;
 }
 
 .item {
   display: inline-block;
+  position: relative;
   padding: 0.5rem;
   width: 98%;
   padding-left: 23px;
   pointer-events: none;
-  position: relative
 }
 
 .item:before {
-  content: '\270E';
-  pointer-events: all;
   position: absolute;
   left: 4px;
+  content: '\270E';
+  pointer-events: all;
   cursor: pointer;
 }
 
@@ -57,12 +57,12 @@
 }
 
 .button {
+  position: absolute;
+  top: 0;
+  right: 0;
   width: 20px;
   height: 20px;
   margin: 0.85rem;
-  position: absolute;
-  right: 0;
-  top: 0;
 }
 
 .button:hover {
@@ -88,8 +88,12 @@
 }
 
 .delete:after {
+  top: 0;
   content: '\2716';
   pointer-events: all;
-  top: 0;
   cursor: pointer;
+}
+
+.notFound {
+  padding: 30px;
 }

@@ -1,14 +1,10 @@
 import { call, put, takeLatest, fork, select } from 'redux-saga/effects';
-import { delay } from 'redux-saga';
-import formActionSaga from 'redux-form-saga';
 import * as actionTypes from '../constants/ActionTypes';
 import history from '../history/history';
 
 import {
   addUser,
-  getTT,
   setTT,
-  setDirections,
   setLibraries,
   deleteLibrarySuccess,
   updateLibrarySuccess,
@@ -26,7 +22,7 @@ import { getReqParams, getCoupleData, getCoupleCount } from '../selectors/select
 
 import * as Api from '../api/api';
 
-function * auth() {
+function* auth() {
   try {
     const user = yield call(Api.getUser);
     yield put(addUser(user));
@@ -37,13 +33,13 @@ function * auth() {
   }
 }
 
-function * redirect(action) {
+function redirect(action) {
   if (action) {
     history.push(action.payload);
   } else history.push('/');
 }
 
-function * login(action) {
+function* login(action) {
   try {
     const data = yield call(Api.login, action.payload);
     localStorage.setItem('token', data);
@@ -55,7 +51,7 @@ function * login(action) {
   }
 }
 
-function * getTimeTable(action) {
+function* getTimeTable(action) {
   try {
     const data = yield call(Api.getTimeTable, action.payload);
     yield put(setTT(data));
@@ -64,7 +60,7 @@ function * getTimeTable(action) {
   }
 }
 
-function * getManagersLibraries(action) {
+function* getManagersLibraries(action) {
   try {
     const data = yield call(Api.getAllManagersLibraries, action.payload);
     yield put(setLibraries(data));
@@ -73,7 +69,7 @@ function * getManagersLibraries(action) {
   }
 }
 
-function * getTimetables(action) {
+function* getTimetables(action) {
   try {
     const data = yield call(Api.getAllTimetables, action.payload);
     yield put(setTimetables(data));
@@ -82,7 +78,7 @@ function * getTimetables(action) {
   }
 }
 
-function * getAdminsLibraries(action) {
+function* getAdminsLibraries(action) {
   try {
     const data = yield call(Api.getAllAdminsLibraries, action.payload);
     yield put(setLibraries(data));
@@ -91,7 +87,7 @@ function * getAdminsLibraries(action) {
   }
 }
 
-function * deleteLibrary(action) {
+function* deleteLibrary(action) {
   try {
     yield call(Api.deleteLibrary, action.payload);
     yield put(deleteLibrarySuccess(action.payload));
@@ -100,7 +96,7 @@ function * deleteLibrary(action) {
   }
 }
 
-function * updateLibrary(action) {
+function* updateLibrary(action) {
   try {
     yield call(Api.updateLibrary, action.payload);
     yield put(updateLibrarySuccess(action.payload));
@@ -109,7 +105,7 @@ function * updateLibrary(action) {
   }
 }
 
-function * addLibrary(action) {
+function* addLibrary(action) {
   try {
     let data = yield call(Api.addLibrary, action.payload);
     yield put(addLibrarySuccess(data));
@@ -167,6 +163,17 @@ function* addLessonSaga(action) {
   }
 }
 
+function* updateLessonSaga(action) {
+  const req = yield select(getReqParams);
+  try {
+    yield call(Api.updateLesson, action.payload);
+    const data = yield call(Api.getTimeTable, req);
+    yield put(setTT(data));
+  } catch (err) {
+    console.log(err);
+  }
+}
+
 function* removeLessonSaga(action) {
   const req = yield select(getReqParams);
   try {
@@ -182,7 +189,7 @@ function* saveCoupleSaga() {
   const value = yield select(getCoupleData);
   const count = yield select(getCoupleCount);
   try {
-    yield put(addCouple({id: count, value: [value]}));
+    yield put(addCouple({ id: count, value: [value] }));
     yield put(saveCouple.success());
   } catch (error) {
     yield put(saveCouple.failure());
@@ -206,5 +213,6 @@ export default function* root() {
   yield takeLatest(actionTypes.updateTimetable, updateTimetable);
   yield takeLatest(actionTypes.getTimes, getTimesSaga);
   yield takeLatest(actionTypes.addLesson, addLessonSaga);
+  yield takeLatest(actionTypes.updateLesson, updateLessonSaga)
   yield takeLatest(actionTypes.deleteLesson, removeLessonSaga);
 }

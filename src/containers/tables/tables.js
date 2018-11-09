@@ -7,7 +7,7 @@ import { withRouter } from 'react-router';
 
 import styles from './tables.css';
 import { Button, Collapsible, CollapsibleItem, CardPanel, Row, Col } from 'react-materialize';
-import {setCurrentModal, deleteTimetable, selectTimetable, getTT} from '../../actions/actions';
+import { setCurrentModal, deleteTimetable, selectTimetable, getTT } from '../../actions/actions';
 
 class Tables extends React.Component {
   constructor(props) {
@@ -40,8 +40,8 @@ class Tables extends React.Component {
   }
 
   render() {
-    const list = this.props.tables.map((el, key) => {
-      const {_id, tables} = el;
+    const list = this.props.tables[0] && this.props.tables.map((el, key) => {
+      const { _id, tables } = el;
       const onClick = () => {
         this.edit(_id.faculty._id, _id.year, _id.semester);
       }
@@ -50,7 +50,7 @@ class Tables extends React.Component {
           header={
             <div>{_id.faculty.name} {_id.year} {_id.semester}
               <Button
-                ref={button => {this.buttons.push(button)}}
+                ref={button => { this.buttons.push(button) }}
                 onClick={onClick} floating
                 styleName="button"
                 className='blue darken-2 right not-collapse'
@@ -66,10 +66,12 @@ class Tables extends React.Component {
                 }
                 return (
                   <div key={`item-${id}`}>
-                    <li onClick={select} styleName="item">{item.direction.name} ({item.direction.profile}) {item.course} курс {item.direction.level}</li>
+                    {
+                      item.direction && <li onClick={select} styleName="item">{item.direction.name} ({item.direction.profile}) {item.course} курс {item.direction.level}</li>
+                    }
                     {
                       item.cells.length === 0 &&
-                        <div id={item._id} onClick={this.deleteItem} styleName="delete" />
+                      <div id={item._id} onClick={this.deleteItem} styleName="delete" />
                     }
                   </div>
                 )
@@ -83,6 +85,7 @@ class Tables extends React.Component {
       <div>
         <Button onClick={this.add} styleName="add" className='green right not-collapse'>Добавить расписание</Button>
         <Collapsible accordion styleName="collapsible">
+          {!list && <div styleName="notFound">Нет доступных расписаний</div>}
           {list}
         </Collapsible>
       </div>

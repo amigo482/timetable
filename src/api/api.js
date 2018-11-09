@@ -1,7 +1,7 @@
 import axios from 'axios';
 
-const URL = 'http://81.177.142.218';
-//const URL = 'http://localhost';
+// const URL = 'http://81.177.142.218';
+const URL = 'http://localhost';
 const port = 1337;
 
 export const login = (user) => {
@@ -161,6 +161,19 @@ export const updateTimetable = (props) => {
 
 export const addLesson = (props) => {
     const url = `${URL}:${port}/timetable/add`;
+    return axios({
+        url, method: 'POST', headers: {
+            'x-auth': localStorage.getItem('token'),
+        }, data: props
+    }).then(response => {
+        if (response.status === 200) {
+            return response.data;
+        }
+    });
+}
+
+export const updateLesson = (props) => {
+    const url = `${URL}:${port}/timetable/update`;
     return axios({
         url, method: 'POST', headers: {
             'x-auth': localStorage.getItem('token'),

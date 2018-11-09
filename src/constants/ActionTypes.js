@@ -37,6 +37,7 @@ export const deleteTimetable = 'deleteTimetable';
 export const deleteTimetableSuccess = 'deleteTimetableSuccess';
 
 export const addLesson = 'addLesson';
+export const updateLesson = 'updateLesson';
 export const deleteLesson = 'deleteLesson';
 
 export const setCurrentModal = 'setCurrentModal';

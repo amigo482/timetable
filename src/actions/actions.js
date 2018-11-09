@@ -3,73 +3,73 @@ import { createFormAction } from 'redux-form-saga';
 
 export function addCouple(object) {
   return {
-      payload: object,
-      type: actionTypes.addСouple,
+    payload: object,
+    type: actionTypes.addСouple,
   };
 }
 
 export function changeSubgroup(id, subgroup) {
   return {
-      payload: {
-        id,
-        subgroup,
-      },
-      type: actionTypes.changeSubgroup,
+    payload: {
+      id,
+      subgroup,
+    },
+    type: actionTypes.changeSubgroup,
   };
 }
 
 export function addSubCouple(selected, id) {
   return {
-      payload: {
-        selected,
-        id,
-      },
-      type: actionTypes.addSubCouple,
+    payload: {
+      selected,
+      id,
+    },
+    type: actionTypes.addSubCouple,
   };
 }
 
 export function deleteCouple(id) {
   return {
-      payload: id,
-      type: actionTypes.deleteCouple,
+    payload: id,
+    type: actionTypes.deleteCouple,
   };
 }
 
 export function clearCouples() {
   return {
-      payload: 'all',
-      type: actionTypes.clearCouples,
+    payload: 'all',
+    type: actionTypes.clearCouples,
   };
 }
 
 export function changeCourse(number) {
   return {
-      payload: number,
-      type: actionTypes.changeCourse,
+    payload: number,
+    type: actionTypes.changeCourse,
   };
 }
 
 export function login(login, pass) {
   return {
-      payload: {
-        login,
-        pass,
-      },
-      type: actionTypes.login,
+    payload: {
+      login,
+      pass,
+    },
+    type: actionTypes.login,
   };
 }
 
 export function addUser(user) {
   return {
-      payload: user,
-      type: actionTypes.addUser,
+    payload: user,
+    type: actionTypes.addUser,
   };
 }
 
 export function redirect(url) {
   return {
-      payload: url,
-      type: actionTypes.redirect,
+    payload: url,
+    type: actionTypes.redirect,
   };
 }
 
@@ -262,6 +262,13 @@ export function addLesson(data) {
   return {
     payload: data,
     type: actionTypes.addLesson,
+  }
+}
+
+export function updateLesson(data) {
+  return {
+    payload: data,
+    type: actionTypes.updateLesson,
   }
 }
 

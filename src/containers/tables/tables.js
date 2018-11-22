@@ -41,6 +41,7 @@ class Tables extends React.Component {
 
   render() {
     const list = this.props.tables[0] && this.props.tables.map((el, key) => {
+      if (!el._id.faculty) { return null; }
       const { _id, tables } = el;
       const onClick = () => {
         this.edit(_id.faculty._id, _id.year, _id.semester);
